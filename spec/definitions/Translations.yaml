@@ -1,0 +1,7 @@
+type: object
+properties:
+  _meta:
+    $ref: '#/definitions/Meta'
+  translations:
+    description: List of translations
+    type: object

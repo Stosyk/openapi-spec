@@ -1,229 +1,103 @@
-# For full example of OpenAPI features check out: https://github.com/APIs-guru/petstore_extended
-
 swagger: '2.0'
-# You should specify common part of your endpoints in the following format:
-#   <schemes>://<host><basepath>
 schemes:
   - https
-host: api.stosyk.io
-basePath: /v1 # Note: SHOULD begin with '/'.
+host: stosyk-sandbox.herokuapp.com
+basePath: /v1
+x-servers:
+  - url: //api.stosyk.io/v1
+    description: Default server
+  - url: //stosyk-sandbox.herokuapp.com/v1
+    description: Sandbox server
 info:
-  # Describe your API here, you can use GFM (https://guides.github.com/features/mastering-markdown) here
-  description: |
+  description: >
     Stosyk is a translation management platform for software projects.
-    The API allows you to work with localization data stored in Stosyk for your account.
+
+    The API allows you to work with localization data stored in Stosyk for your
+    account.
+
 
     # Introduction
+
     This specification describes the API in 
-    [OpenAPI/Swagger format](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md).
-    It also uses [generator-openapi-repo](https://github.com/Rebilly/generator-openapi-repo) tool and 
+
+    [OpenAPI/Swagger
+    format](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md).
+
+    It also uses
+    [generator-openapi-repo](https://github.com/Rebilly/generator-openapi-repo)
+    tool and 
+
     [ReDoc](https://github.com/Rebilly/ReDoc) documentation engine.
-    
+
+
     # OpenAPI Specification
-    The goal of The OpenAPI Specification is to define a standard, language-agnostic interface to REST APIs which
-    allows both humans and computers to discover and understand the capabilities of the service without access to source
-    code, documentation, or through network traffic inspection. When properly defined via OpenAPI, a consumer can 
-    understand and interact with the remote service with a minimal amount of implementation logic. Similar to what
-    interfaces have done for lower-level programming, OpenAPI removes the guesswork in calling the service.
-    
+
+    The goal of The OpenAPI Specification is to define a standard,
+    language-agnostic interface to REST APIs which
+
+    allows both humans and computers to discover and understand the capabilities
+    of the service without access to source
+
+    code, documentation, or through network traffic inspection. When properly
+    defined via OpenAPI, a consumer can 
+
+    understand and interact with the remote service with a minimal amount of
+    implementation logic. Similar to what
+
+    interfaces have done for lower-level programming, OpenAPI removes the
+    guesswork in calling the service.
+
+
     # Schema
-    The API is only accessible via HTTPS, the base URL is https://api.stosyk.io/, and the current version is v1 which presents in the base URL for all requests: https://api.stosyk.io/v1/.
-    
+
+    The API is only accessible via HTTPS, the base URL is
+    https://api.stosyk.io/, and the current version is v1 which presents in the
+    base URL for all requests: https://api.stosyk.io/v1/.
+
+
     # Authentication
-    When you sign up for an account, you will be able to create your first API key.
-    You can generate as many API keys as you want, manage permissions and delete them. 
-    You authenticate to the API by providing your secret key in the request header.
-    
+
+    When you sign up for an account, you will be able to create your first API
+    key.
+
+    You can generate as many API keys as you want, manage permissions and delete
+    them. 
+
+    You authenticate to the API by providing your secret key in the request
+    header.
+
+
     Stosyk API offers Bearer authentication.
-    It requires sending an `Authorization` header containing the type value `Bearer` followed by your authentication token.
-    You can control the specific granular permissions and expiration for certain token over the [Manage website](https://stosyk.io).
+
+    It requires sending an `Authorization` header containing the type value
+    `Bearer` followed by your authentication token.
+
+    You can control the specific granular permissions and expiration for certain
+    token over the [Manage website](https://stosyk.io).
+
     `TODO:` add an example of usage
-    
-  version: '1.0.0' # Your API version
-  # It can be any string but it is better to use semantic versioning: http://semver.org/
-  # Warning: OpenAPI require version to be string, but without quotation YAML can recognize it as number.
-
+  version: 1.0.0
   title: Stosyk.io
-  # Keep it simple. Don't add "API" or verison at the end of the string.
-
   contact:
-    name: "Maksym Koshtenko"
+    name: Maksym Koshtenko
     email: maksum.k@gmail.com
   x-logo:
-    url: 'logo.png'
+    url: logo.png
 produces:
   - application/json
 consumes:
   - application/json
-
-# A list of tags used by the specification with additional metadata.
-# The order of the tags can be used to reflect on their order by the parsing tools.
 tags:
   - name: Projects
     description: Operations with projects
-# Security scheme definitions that can be used across the specification.
+  - name: Translations
+    description: Operations with translations
 securityDefinitions:
   bearer_auth:
-    description: |
-      This scheme relies on authenticating users by having them present a standard `Authorization` header containing the value `Bearer` followed by their API key / authorization token.
+    description: >
+      This scheme relies on authenticating users by having them present a
+      standard `Authorization` header containing the value `Bearer` followed by
+      their API key / authorization token.
     type: apiKey
     name: Authorization
     in: header
-
-# Holds the relative paths to the individual endpoints. The path is appended to the
-# basePath in order to construct the full URL. 
-# paths:
-#   '/users/{username}': # path parameter in curly braces
-#     # documentation for GET operation for this path
-#
-#     # parameters list that are used with each operation for this path
-#     parameters:
-#       - name: pretty_print
-#         in: query # place where paramter is passed: path, header, query or body, formData
-#         description: Pretty print response
-#         # type of the paramter: string, number, integer, boolean, array
-#         type: boolean
-#     get:
-#       tags:
-#         - User
-#
-#       # summary is up to 120 symbold but we recommend to be shortest as possible
-#       summary: Get user by user name
-#
-#       # you can use GFM in operation description too: https://guides.github.com/features/mastering-markdown
-#       description: |
-#         Some description of the operation.
-#         You can use `markdown` here.
-#
-#       # operationId should be unique across the whole specification
-#       operationId: getUserByName
-#
-#       # list of parameters for the operation
-#       parameters:
-#         - name: username
-#           in: path
-#           description: 'The name that needs to be fetched'
-#           required: true
-#           type: string
-#         - name: with_email
-#           in: query
-#           description: Filter users without email
-#           type: boolean
-#
-#       # security schemas applied to this operation
-#       security:
-#         - main_auth:
-#           - 'read:users' # for auth2 provide list of scopes here
-#         - api_key: []
-#       # overwriting default global produces
-#       produces:
-#         - application/json
-#       responses: # list of responses
-#         '200':
-#           description: Success
-#           schema: # response schema can be specified for each response
-#             $ref: '#/definitions/User'
-#           examples:
-#           # repsonse samples for each type operation produces
-#             application/json:
-#               username: user1
-#               email: user@example.com
-#         '403':
-#           description: Forbidden
-#         '404':
-#           description: User not found
-#     # documentation for PUT operation for this path
-#     put:
-#       tags:
-#         - User
-#       summary: Updated user
-#       description: This can only be done by the logged in user.
-#       operationId: updateUser
-#       produces:
-#         - application/json
-#       parameters:
-#         - name: username
-#           in: path
-#           description: The name that needs to be updated
-#           required: true
-#           type: string
-#         - in: body
-#           name: body
-#           description: Updated user object
-#           required: true
-#           # for body parameter you should specify request schema instead of type
-#           schema:
-#             $ref: '#/definitions/User'
-#       security:
-#         - main_auth:
-#           - 'write:users'
-#       responses:
-#         '200':
-#           description: OK
-#         '400':
-#           description: Invalid user supplied
-#         '404':
-#           description: User not found
-#
-#   '/echo':
-#     post:
-#       tags:
-#         - Echo
-#       summary: Echo test
-#       description: Receive the exact message you've sent
-#       operationId: echo
-#       parameters:
-#         - name: message
-#           in: body
-#           description: 'Echo payload'
-#           required: true
-#           schema:
-#             type: string
-#             example: 'Hello world!'
-#       security:
-#         - api_key: []
-#       responses:
-#         '200':
-#           description: 'OK'
-#           examples:
-#             'application/json': 'Hello world!'
-#           schema:
-#             type: string
-#           # docuemnt headers for this repsonse
-#           headers:
-#             X-Rate-Limit: # Header name
-#               type: integer # Header value type
-#               format: int32 # Header value format
-#               description: calls per hour allowed by the user
-#             X-Expires-After:
-#               type: string
-#               format: date-time
-#               description: date in UTC when token expires
-# # An object to hold data types that can be consumed and produced by operations.
-# # These data types can be primitives, arrays or models.
-# definitions:
-#   Email:
-#     description: User email address
-#     type: string
-#     format: email
-#     example: john.smith@example.com
-#   User:
-#     type: object
-#     properties:
-#       username:
-#         description: User supplied username
-#         type: string
-#         minLength: 4
-#         example: John78
-#       firstName:
-#         description: User first name
-#         type: string
-#         minLength: 1
-#         example: John
-#       lastName:
-#         description: User last name
-#         type: string
-#         minLength: 1
-#         example: Smith
-#       email:
-#         $ref: '#/definitions/Email'

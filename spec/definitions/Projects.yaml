@@ -1,0 +1,9 @@
+type: object
+properties:
+  _meta:
+    $ref: '#/definitions/Meta'
+  projects:
+    description: List of projects
+    type: array
+    items:
+      $ref: '#/definitions/Project'

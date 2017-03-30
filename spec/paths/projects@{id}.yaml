@@ -1,0 +1,24 @@
+get:
+  tags:
+    - Projects
+  summary: Get project
+  description: |
+    Returns project with id
+  operationId: getProject
+  parameters:
+    - name: id
+      in: path
+      required: true
+      description: Int identifier of a project
+      type: integer
+  security:
+    - bearer_auth: []
+  responses:
+    '200':
+      description: Success
+      schema:
+        $ref: '#/definitions/Project'
+    '401':
+      description: Unauthorized
+    '404':
+      description: Project not found
