@@ -17,6 +17,6 @@ get:
     '200':
       description: Success
       schema:
-        $ref: '#/definitions/Projects'
+        $ref: '#/definitions/ProjectsContainer'
     '401':
       description: Unauthorized
