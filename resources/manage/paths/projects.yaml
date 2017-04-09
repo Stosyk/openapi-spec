@@ -1,0 +1,22 @@
+get:
+  tags:
+    - Projects
+  summary: Get all projects
+  description: |
+    Returns all projects for current user
+  operationId: getAllProjects
+  parameters:
+    - name: since
+      in: query
+      required: false
+      description: 'Unix timestamp, allows filtering by update time'
+      type: number
+  security:
+    - bearer_auth: []
+  responses:
+    '200':
+      description: Success
+      schema:
+        $ref: '#/definitions/ProjectsContainer'
+    '401':
+      description: Unauthorized

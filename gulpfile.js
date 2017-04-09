@@ -6,11 +6,10 @@ var cors = require('cors');
 var path = require('path');
 var exec = require('child_process').exec;
 var portfinder = require('portfinder');
-var swaggerRepo = require('swagger-repo');
 
 var DIST_DIR = 'web_deploy';
 
-gulp.task('serve', ['build', 'watch', 'edit'], function() {
+gulp.task('serve', ['build', 'watch'], function() {
   portfinder.getPort({port: 3000}, function (err, port) {
     gulpConnect.server({
       root: [DIST_DIR],
@@ -22,15 +21,6 @@ gulp.task('serve', ['build', 'watch', 'edit'], function() {
         ]
       }
     });
-  });
-});
-
-gulp.task('edit', function() {
-  portfinder.getPort({port: 5000}, function (err, port) {
-    var app = connect();
-    app.use(swaggerRepo.swaggerEditorMiddleware());
-    app.listen(port);
-    util.log(util.colors.green('swagger-editor started http://localhost:' + port));
   });
 });
 
@@ -46,5 +36,5 @@ gulp.task('reload', ['build'], function () {
 });
 
 gulp.task('watch', function () {
-  gulp.watch(['spec/**/*', 'web/**/*'], ['reload']);
+  gulp.watch(['spec/**/**/*', 'web/**/*'], ['reload']);
 });

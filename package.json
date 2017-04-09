@@ -1,6 +1,6 @@
 {
   "name": "Stosyk-openapi-spec",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "dependencies": {
     "bower": "^1.7.7",
     "connect": "^3.4.1",
@@ -11,8 +11,7 @@
     "gulp-util": "^3.0.7",
     "portfinder": "^1.0.3",
     "shelljs": "^0.7.0",
-    "swagger-repo": "^1.0.0",
-    "swagger-ui": "^2.1.4"
+    "swagger-repo": "^1.0.0"
   },
   "private": true,
   "scripts": {
@@ -21,6 +20,5 @@
     "swagger": "swagger-repo",
     "test": "swagger-repo validate",
     "start": "gulp serve",
-    "deploy-branch": "node ./scripts/deploy-branch.js"
   }
 }

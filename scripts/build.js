@@ -9,11 +9,20 @@ mkdir('-p', 'web_deploy')
 
 cp('-R', 'web/*', 'web_deploy/');
 
-exec('npm run swagger bundle --        -o web_deploy/swagger.json');
-exec('npm run swagger bundle -- --yaml -o web_deploy/swagger.yaml');
+mkdir('-p', 'spec')
+cp('-R', 'resources/public/*', 'spec/');
+exec('npm run swagger bundle --        -o web_deploy/api.json');
+exec('npm run swagger bundle -- --yaml -o web_deploy/api.yaml');
+rm('-rf', 'spec')
 
-var SWAGGER_UI_DIST = Path.dirname(require.resolve('swagger-ui'));
-rm('-rf', 'web_deploy/swagger-ui/')
-cp('-R', SWAGGER_UI_DIST, 'web_deploy/swagger-ui/')
-sed('-i', 'http://petstore.swagger.io/v2/swagger.json', '../swagger.json', 'web_deploy/swagger-ui/index.html')
+mkdir('-p', 'spec')
+cp('-R', 'resources/manage/*', 'spec/');
+exec('npm run swagger bundle --        -o web_deploy/manage.json');
+exec('npm run swagger bundle -- --yaml -o web_deploy/manage.yaml');
+rm('-rf', 'spec')
 
+mkdir('-p', 'spec')
+cp('-R', 'resources/admin/*', 'spec/');
+exec('npm run swagger bundle --        -o web_deploy/admin.json');
+exec('npm run swagger bundle -- --yaml -o web_deploy/admin.yaml');
+rm('-rf', 'spec')
