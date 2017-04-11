@@ -18,25 +18,28 @@
         <table class="tg">
             <tr>
                 <td class="tg-wpdj" rowspan="2">Public</td>
-                <td class="tg-42hv"><a href="https://stosyk.github.io/openapi-spec/api.json" target="_blank">https://stosyk.github.io/openapi-spec/api.json</a></td>
+                <td class="tg-42hv"><a href="./api.json" id="link" target="_blank">"${pageContext.request.contextPath}" + "/api.json"</a></td>
             </tr>
             <tr>
-                <td class="tg-42hv"><a href="https://stosyk.github.io/openapi-spec/api.yaml" target="_blank">https://stosyk.github.io/openapi-spec/api.yaml</a></td>
+                <td class="tg-42hv"><a href="./api.yaml" id="link" target="_blank">https://stosyk.github.io/openapi-spec/api.yaml</a></td>
             </tr>
             <tr>
                 <td class="tg-wpdj" rowspan="2">Manage</td>
-                <td class="tg-42hv"><a href="https://stosyk.github.io/openapi-spec/manage.json" target="_blank">https://stosyk.github.io/openapi-spec/manage.json</a></td>
+                <td class="tg-42hv"><a href="./manage.json" target="_blank">https://stosyk.github.io/openapi-spec/manage.json</a></td>
             </tr>
             <tr>
-                <td class="tg-42hv"><a href="https://stosyk.github.io/openapi-spec/manage.yaml" target="_blank">https://stosyk.github.io/openapi-spec/manage.yaml</a></td>
+                <td class="tg-42hv"><a href="./manage.yaml" target="_blank">https://stosyk.github.io/openapi-spec/manage.yaml</a></td>
             </tr>
             <tr>
                 <td class="tg-wpdj" rowspan="2">Admin</td>
-                <td class="tg-42hv"><a href="https://stosyk.github.io/openapi-spec/admin.json" target="_blank">https://stosyk.github.io/openapi-spec/admin.json</a></td>
+                <td class="tg-42hv"><a href="./admin.json" target="_blank">https://stosyk.github.io/openapi-spec/admin.json</a></td>
             </tr>
             <tr>
-                <td class="tg-42hv"><a href="https://stosyk.github.io/openapi-spec/admin.yaml" target="_blank">https://stosyk.github.io/openapi-spec/admin.yaml</a></td>
+                <td class="tg-42hv"><a href="./admin.yaml" target="_blank">https://stosyk.github.io/openapi-spec/admin.yaml</a></td>
             </tr>
         </table>
+        <script type="text/javascript">
+            document.getElementById("link").href="xyz.php"; 
+        </script>
     </body>
 </html>
