@@ -1,10 +1,10 @@
-# Stosyk OpenAPI Specification
+# Stosyk OpenAPI Specifications
 [![Build Status](https://travis-ci.org/Stosyk/openapi-spec.svg?branch=master)](https://travis-ci.org/Stosyk/openapi-spec)
 
 ## Links
 
 - OpenAPI/Swagger format: https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md
-- Available specs: https://stosyk.github.io/openapi-spec/
+- Available specs(json/yaml): https://stosyk.github.io/openapi-spec/
 
 **Warning:** specs link is updated only after Travis CI finishes deployment
 
