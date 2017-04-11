@@ -3,16 +3,12 @@
 
 ## Links
 
-- Documentation(ReDoc): https://stosyk.github.io/openapi-spec/
-- SwaggerUI: https://stosyk.github.io/openapi-spec/swagger-ui/
-- Look full spec:
-    + JSON https://stosyk.github.io/openapi-spec/swagger.json
-    + YAML https://stosyk.github.io/openapi-spec/swagger.yaml
-- Preview spec version for branch `[branch]`: https://stosyk.github.io/openapi-spec/preview/[branch]
+- OpenAPI/Swagger format: https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md
+- Available specs: https://stosyk.github.io/openapi-spec/
 
-**Warning:** All above links are updated only after Travis CI finishes deployment
+**Warning:** specs link is updated only after Travis CI finishes deployment
 
-## Working on specification
+## Working on specifications
 ### Install
 
 1. Install [Node JS](https://nodejs.org/)
@@ -22,9 +18,8 @@
 ### Usage
 
 1. Run `npm start`
-2. Checkout console output to see where local server is started. You can use all [links](#links) (except `preview`) by replacing https://stosyk.github.io/openapi-spec/ with url from the message: `Server started <url>`
-3. Make changes using your favorite editor or `swagger-editor` (look for URL in console output)
-4. All changes are immediately propagated to your local server, moreover all documentation pages will be automagically refreshed in a browser after each change
-**TIP:** you can open `swagger-editor`, documentation and `swagger-ui` in parallel
+2. Checkout console output to see where local server is started.
+3. Make changes in resources or web
+4. All changes are immediately propagated to your local server
 5. Once you finish with the changes you can run tests using: `npm test`
-6. Share you changes with the rest of the world by pushing to GitHub :smile:
+6. Push changes to GitHub
