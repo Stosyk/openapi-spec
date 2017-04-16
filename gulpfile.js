@@ -36,5 +36,5 @@ gulp.task('reload', ['build'], function () {
 });
 
 gulp.task('watch', function () {
-  gulp.watch(['web/**/*'], ['reload']);
+  gulp.watch(['web/**/*', 'resources/**/*'], ['reload']);
 });
