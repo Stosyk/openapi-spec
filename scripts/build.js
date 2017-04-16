@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 'use strict';
 
+var path = require('path');
 require('shelljs/global');
 set('-e');
 
-mkdir('-p', 'web_deploy')
+var deploy_dir = 'web_deploy'
 
-cp('-R', 'web/*', 'web_deploy/');
+mkdir('-p', deploy_dir)
+cp('-R', path.join('web', '*'), deploy_dir);
 
-exec('node ./scripts/build-spec.js web_deploy');
+exec('node '+ path.join('scripts', 'build-spec.js') + ' ./ ./');
