@@ -1,16 +1,16 @@
 swagger: '2.0'
 schemes:
-  - https
-host: stosyk-sandbox.herokuapp.com
-basePath: /v1
+  - http
+host: 'localhost:8080'
+basePath: /manage/v1
 x-servers:
-  - url: //api.stosyk.io/v1
+  - url: //api.stosyk.io/manage/v1
     description: Default server
-  - url: //stosyk-sandbox.herokuapp.com/v1
+  - url: //stosyk-sandbox.herokuapp.com/manage/v1
     description: Sandbox server
 info:
   description: >
-    Stosyk is a translation management platform for software projects.
+    Stosyk is a translations management system for software projects.
 
     The API allows you to work with localization data stored in Stosyk for your
     account.
@@ -51,8 +51,8 @@ info:
     # Schema
 
     The API is only accessible via HTTPS, the base URL is
-    https://api.stosyk.io/, and the current version is v1 which presents in the
-    base URL for all requests: https://api.stosyk.io/v1/.
+    https://api.stosyk.io/manage/, and the current version is v1 which presents
+    in the base URL for all requests: https://api.stosyk.io/manage/v1/.
 
 
     # Authentication
@@ -77,7 +77,7 @@ info:
 
     `TODO:` add an example of usage
   version: 1.0.0
-  title: manage/stosyk.io
+  title: manage.stosyk.io
   contact:
     name: Maksym Koshtenko
     email: maksum.k@gmail.com
@@ -89,9 +89,7 @@ consumes:
   - application/json
 tags:
   - name: Projects
-    description: Operations with projects
-  - name: Translations
-    description: Operations with translations
+  - name: Tags
 securityDefinitions:
   bearer_auth:
     description: >

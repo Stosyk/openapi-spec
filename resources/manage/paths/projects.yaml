@@ -1,7 +1,30 @@
+post:
+  tags:
+    - Projects
+  summary: Create
+  description: |
+    Create new project for current user
+  operationId: createNewProjects
+  parameters:
+    - name: project
+      in: body
+      description: The project JSON you want to create
+      schema:
+        $ref: '#/definitions/Project'
+      required: true
+  security:
+    - bearer_auth: []
+  responses:
+    '201':
+      description: Success
+      schema:
+        $ref: '#/definitions/ProjectContainer'
+    '401':
+      description: Unauthorized
 get:
   tags:
     - Projects
-  summary: Get all projects
+  summary: Get All
   description: |
     Returns all projects for current user
   operationId: getAllProjects

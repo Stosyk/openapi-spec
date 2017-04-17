@@ -1,7 +1,7 @@
 get:
   tags:
     - Projects
-  summary: Get project
+  summary: Get By ID
   description: |
     Returns project with id
   operationId: getProject
@@ -21,4 +21,56 @@ get:
     '401':
       description: Unauthorized
     '404':
-      description: Project not found
+      description: Not found
+put:
+  tags:
+    - Projects
+  summary: Update
+  description: |
+    Updates project with id
+  operationId: updateProject
+  parameters:
+    - name: id
+      in: path
+      required: true
+      description: Int identifier of a project
+      type: integer
+    - name: project
+      in: body
+      description: The project JSON you want to update
+      schema:
+        $ref: '#/definitions/Project'
+      required: true
+  security:
+    - bearer_auth: []
+  responses:
+    '200':
+      description: Success
+      schema:
+        $ref: '#/definitions/ProjectContainer'
+    '401':
+      description: Unauthorized
+    '404':
+      description: Not found
+delete:
+  tags:
+    - Projects
+  summary: Delete
+  description: |
+    Deletes project with id
+  operationId: deleteProject
+  parameters:
+    - name: id
+      in: path
+      required: true
+      description: Int identifier of a project
+      type: integer
+  security:
+    - bearer_auth: []
+  responses:
+    '204':
+      description: Success
+    '401':
+      description: Unauthorized
+    '404':
+      description: Not found
