@@ -2,8 +2,8 @@ type: object
 properties:
   _meta:
     $ref: '#/definitions/Meta'
-  projects:
-    description: List of projects
+  teams:
+    description: List of teams
     type: array
     items:
-      $ref: '#/definitions/Project'
+      $ref: '#/definitions/Team'

@@ -1,0 +1,70 @@
+get:
+  tags:
+    - Teams
+  summary: Get by Id
+  description: |
+    Returns certain team by unique identifier
+  operationId: getTeamById
+  security:
+    - bearer_auth: []
+  parameters:
+    - name: id
+      in: path
+      type: string
+      description: Id of the team
+      required: true
+  responses:
+    '200':
+      description: Success
+      schema:
+        $ref: '#/definitions/TeamContainer'
+    '401':
+      description: Unauthorized
+put:
+  tags:
+    - Teams
+  summary: Update
+  description: |
+    Update an existen team
+  operationId: updateTeam
+  security:
+    - bearer_auth: []
+  parameters:
+    - name: id
+      in: path
+      type: string
+      description: Id of the team
+      required: true
+    - name: team
+      in: body
+      description: The team JSON you want to update
+      schema:
+        $ref: '#/definitions/Team'
+      required: true
+  responses:
+    '200':
+      description: Success
+      schema:
+        $ref: '#/definitions/TeamContainer'
+    '401':
+      description: Unauthorized
+delete:
+  tags:
+    - Teams
+  summary: Delete
+  description: |
+    Delete an existen team
+  operationId: deleteTeam
+  security:
+    - bearer_auth: []
+  parameters:
+    - name: id
+      in: path
+      type: string
+      description: Id of the team
+      required: true
+  responses:
+    '204':
+      description: Success
+    '401':
+      description: Unauthorized

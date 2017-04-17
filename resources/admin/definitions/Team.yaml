@@ -5,6 +5,6 @@ properties:
     type: integer
     example: 10001
   name:
-    description: Name of the project
+    description: Name of the team
     type: string
-    example: MyProject
+    example: FirstTeam

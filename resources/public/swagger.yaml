@@ -4,13 +4,13 @@ schemes:
 host: stosyk-sandbox.herokuapp.com
 basePath: /v1
 x-servers:
-  - url: //stosyk.io/v1
-    description: Default server
+  - url: //api.stosyk.io/v1
+    description: Production server
   - url: //stosyk-sandbox.herokuapp.com/v1
     description: Sandbox server
 info:
   description: >
-    Stosyk is a translation management platform for software projects.
+    Stosyk is a translations management system for software projects.
 
     The API allows you to work with localization data stored in Stosyk for your
     account.

@@ -1,0 +1,39 @@
+post:
+  tags:
+    - Teams
+  summary: Create
+  description: |
+    Create new team with current user as an owner
+  operationId: createNewTeam
+  security:
+    - bearer_auth: []
+  parameters:
+    - name: team
+      in: body
+      description: The team JSON you want to create
+      schema:
+        $ref: '#/definitions/Team'
+      required: true
+  responses:
+    '201':
+      description: Success
+      schema:
+        $ref: '#/definitions/TeamContainer'
+    '401':
+      description: Unauthorized
+get:
+  tags:
+    - Teams
+  summary: Get all
+  description: |
+    Returns all teams of current user
+  operationId: getAllTeams
+  security:
+    - bearer_auth: []
+  responses:
+    '200':
+      description: Success
+      schema:
+        $ref: '#/definitions/TeamsContainer'
+    '401':
+      description: Unauthorized

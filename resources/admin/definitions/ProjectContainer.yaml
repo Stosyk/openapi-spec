@@ -1,7 +1,0 @@
-type: object
-properties:
-  projects:
-    description: List of projects
-    type: array
-    items:
-      $ref: '#/definitions/Project'

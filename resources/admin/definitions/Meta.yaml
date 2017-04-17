@@ -11,4 +11,4 @@ properties:
   total:
     description: Total number of entities
     type: integer
-    example: 2
+    example: 1
