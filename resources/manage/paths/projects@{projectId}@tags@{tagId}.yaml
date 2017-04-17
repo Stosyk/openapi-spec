@@ -1,0 +1,91 @@
+get:
+  tags:
+    - Tags
+  summary: Get By ID
+  description: |
+    Returns tag with id inside the project
+  operationId: getTag
+  parameters:
+    - name: projectId
+      in: path
+      required: true
+      description: Int identifier of a project
+      type: integer
+    - name: tagId
+      in: path
+      required: true
+      description: Int identifier of a tag
+      type: integer
+  security:
+    - bearer_auth: []
+  responses:
+    '200':
+      description: Success
+      schema:
+        $ref: '#/definitions/TagContainer'
+    '401':
+      description: Unauthorized
+    '404':
+      description: Not found
+put:
+  tags:
+    - Tags
+  summary: Update
+  description: |
+    Updates tag with id inside the project
+  operationId: updateTag
+  parameters:
+    - name: projectId
+      in: path
+      required: true
+      description: Int identifier of a project
+      type: integer
+    - name: tagId
+      in: path
+      required: true
+      description: Int identifier of a tag
+      type: integer
+    - name: tag
+      in: body
+      description: The tag JSON you want to update
+      schema:
+        $ref: '#/definitions/Tag'
+      required: true
+  security:
+    - bearer_auth: []
+  responses:
+    '200':
+      description: Success
+      schema:
+        $ref: '#/definitions/TagContainer'
+    '401':
+      description: Unauthorized
+    '404':
+      description: Not found
+delete:
+  tags:
+    - Tags
+  summary: Delete
+  description: |
+    Deletes tag with id inside the project
+  operationId: deleteTag
+  parameters:
+    - name: projectId
+      in: path
+      required: true
+      description: Int identifier of a project
+      type: integer
+    - name: tagId
+      in: path
+      required: true
+      description: Int identifier of a tag
+      type: integer
+  security:
+    - bearer_auth: []
+  responses:
+    '204':
+      description: Success
+    '401':
+      description: Unauthorized
+    '404':
+      description: Not found

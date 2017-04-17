@@ -1,0 +1,14 @@
+type: object
+properties:
+  id:
+    description: Unique identifier
+    type: integer
+    example: 4563
+  level:
+    description: 'Level of the tag, represents its depts'
+    type: integer
+    example: 1
+  name:
+    description: Name of the tag
+    type: string
+    example: MyCompany

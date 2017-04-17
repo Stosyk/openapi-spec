@@ -28,12 +28,6 @@ get:
   description: |
     Returns all projects for current user
   operationId: getAllProjects
-  parameters:
-    - name: since
-      in: query
-      required: false
-      description: 'Unix timestamp, allows filtering by update time'
-      type: number
   security:
     - bearer_auth: []
   responses:

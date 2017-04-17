@@ -6,7 +6,7 @@ get:
     Returns project with id
   operationId: getProject
   parameters:
-    - name: id
+    - name: projectId
       in: path
       required: true
       description: Int identifier of a project
@@ -30,7 +30,7 @@ put:
     Updates project with id
   operationId: updateProject
   parameters:
-    - name: id
+    - name: projectId
       in: path
       required: true
       description: Int identifier of a project
@@ -60,7 +60,7 @@ delete:
     Deletes project with id
   operationId: deleteProject
   parameters:
-    - name: id
+    - name: projectId
       in: path
       required: true
       description: Int identifier of a project

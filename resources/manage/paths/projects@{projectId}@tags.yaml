@@ -1,0 +1,54 @@
+post:
+  tags:
+    - Tags
+  summary: Create
+  description: |
+    Create new tag for the project
+  operationId: createNewTag
+  parameters:
+    - name: projectId
+      in: path
+      required: true
+      description: Int identifier of a project
+      type: integer
+    - name: tag
+      in: body
+      description: The tag JSON you want to create
+      schema:
+        $ref: '#/definitions/Tag'
+      required: true
+  security:
+    - bearer_auth: []
+  responses:
+    '201':
+      description: Success
+      schema:
+        $ref: '#/definitions/TagContainer'
+    '401':
+      description: Unauthorized
+    '404':
+      description: Not found
+get:
+  tags:
+    - Tags
+  summary: Get All
+  description: |
+    Returns all tags for the project
+  operationId: getAllTags
+  security:
+    - bearer_auth: []
+  parameters:
+    - name: projectId
+      in: path
+      required: true
+      description: Int identifier of a project
+      type: integer
+  responses:
+    '200':
+      description: Success
+      schema:
+        $ref: '#/definitions/TagsContainer'
+    '401':
+      description: Unauthorized
+    '404':
+      description: Not found

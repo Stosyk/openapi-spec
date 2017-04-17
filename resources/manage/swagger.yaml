@@ -1,7 +1,7 @@
 swagger: '2.0'
 schemes:
-  - http
-host: 'localhost:8080'
+  - https
+host: stosyk-sandbox.herokuapp.com
 basePath: /manage/v1
 x-servers:
   - url: //api.stosyk.io/manage/v1

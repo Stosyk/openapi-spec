@@ -1,0 +1,7 @@
+type: object
+properties:
+  projects:
+    description: List of tags
+    type: array
+    items:
+      $ref: '#/definitions/Tag'
