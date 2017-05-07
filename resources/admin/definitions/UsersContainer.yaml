@@ -1,0 +1,9 @@
+type: object
+properties:
+  _meta:
+    $ref: '#/definitions/Meta'
+  teams:
+    description: List of users
+    type: array
+    items:
+      $ref: '#/definitions/User'

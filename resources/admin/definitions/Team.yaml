@@ -8,3 +8,7 @@ properties:
     description: Name of the team
     type: string
     example: FirstTeam
+  description:
+    description: Description for the team
+    type: string
+    example: We do amazing things

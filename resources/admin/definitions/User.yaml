@@ -1,0 +1,14 @@
+type: object
+properties:
+  id:
+    description: Unique identifier
+    type: integer
+    example: 10001
+  name:
+    description: Name of the user
+    type: string
+    example: Tom Mot
+  email:
+    description: User's email address
+    type: string
+    example: a@mail.net
