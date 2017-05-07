@@ -1,0 +1,39 @@
+post:
+  tags:
+    - Admins
+  summary: Create
+  description: |
+    Create new admin user
+  operationId: createNewAdmin
+  security:
+    - bearer_auth: []
+  parameters:
+    - name: admin
+      in: body
+      description: The admin JSON you want to create
+      schema:
+        $ref: '#/definitions/Admin'
+      required: true
+  responses:
+    '201':
+      description: Success
+      schema:
+        $ref: '#/definitions/AdminContainer'
+    '401':
+      description: Unauthorized
+get:
+  tags:
+    - Admins
+  summary: Get all
+  description: |
+    Returns all admin users
+  operationId: getAllAdmins
+  security:
+    - bearer_auth: []
+  responses:
+    '200':
+      description: Success
+      schema:
+        $ref: '#/definitions/AdminsContainer'
+    '401':
+      description: Unauthorized

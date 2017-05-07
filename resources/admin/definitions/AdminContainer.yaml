@@ -1,0 +1,7 @@
+type: object
+properties:
+  admins:
+    description: List with one admin
+    type: array
+    items:
+      $ref: '#/definitions/Admin'

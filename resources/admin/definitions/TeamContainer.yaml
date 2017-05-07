@@ -1,7 +1,7 @@
 type: object
 properties:
   teams:
-    description: List of teams
+    description: List with one team
     type: array
     items:
       $ref: '#/definitions/Team'

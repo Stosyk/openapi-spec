@@ -1,7 +1,7 @@
 swagger: '2.0'
 schemes:
-  - http
-host: 'localhost:8080'
+  - https
+host: stosyk-sandbox.herokuapp.com
 basePath: /admin/v1
 x-servers:
   - url: //api.stosyk.io/admin/v1
@@ -88,8 +88,9 @@ produces:
 consumes:
   - application/json
 tags:
-  - name: Teams
+  - name: Admins
   - name: Users
+  - name: Teams
 securityDefinitions:
   bearer_auth:
     description: >

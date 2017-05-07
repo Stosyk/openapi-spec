@@ -1,0 +1,14 @@
+type: object
+properties:
+  id:
+    description: Unique identifier
+    type: integer
+    example: 10001
+  name:
+    description: Name of the admin user
+    type: string
+    example: Bob the admin
+  email:
+    description: Admin's email address
+    type: string
+    example: a@stosyk.io

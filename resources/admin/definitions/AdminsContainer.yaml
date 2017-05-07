@@ -2,8 +2,8 @@ type: object
 properties:
   _meta:
     $ref: '#/definitions/Meta'
-  users:
-    description: List of users
+  admins:
+    description: List of admins
     type: array
     items:
-      $ref: '#/definitions/User'
+      $ref: '#/definitions/Admin'
